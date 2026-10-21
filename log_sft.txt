@@ -1,0 +1,14 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  29%|██▊       | 135/471 [00:00<00:00, 1338.27it/s]
+Loading weights:  57%|█████▋    | 269/471 [00:00<00:00, 1328.55it/s]
+Loading weights:  85%|████████▌ | 402/471 [00:00<00:00, 1175.88it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 1203.38it/s]
+D:\code\python\Lib\site-packages\peft\utils\save_and_load.py:313: UserWarning: Could not find a config file in HuggingFaceTB/SmolVLM-256M-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+trainable params: 1,363,968 || all params: 257,848,896 || trainable%: 0.5290
+[sft] step5/10 loss=1.5024
+[sft] step10/10 loss=8.3985
+[sft] 适配器已保存到 ./sft_adapter（本轮训练样本 15 条）

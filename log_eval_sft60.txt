@@ -1,0 +1,42 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  31%|███       | 145/471 [00:00<00:00, 1442.11it/s]
+Loading weights:  62%|██████▏   | 290/471 [00:00<00:00, 1441.97it/s]
+Loading weights:  92%|█████████▏| 435/471 [00:00<00:00, 1327.45it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 1358.61it/s]
+
+===== SFT × 15 题 =====
+[L01] √ A: 第1行第2列第3列第4列。 | gold: 第1行第2列 | IoU=0.18
+[L02] × A: 第1行第2列第3列第4列。 | gold: 第1行第1列 | IoU=0.00
+[L03] × A: 第1行第4列。第1行第4列。第1行第 | gold: 第4行第2列 | IoU=0.00
+[L04] × A: 第1行第2列第3列第4列。 | gold: 第2行第2列 | IoU=0.14
+[L05] √ A: 第1行第2列第3列。 | gold: 第1行第2列 | IoU=0.16
+[L06] × A: 第1行第2列第3列。 | gold: 第4行第1列 | IoU=0.00
+[L07] × A: 第1行第4列。 | gold: 第2行第4列 | IoU=0.00
+[L08] × A: 第1行第4列。 | gold: 第4行第4列 | IoU=0.00
+SFT           loc    正确 2/8
+SFT           count  正确 4/4
+SFT           exist  正确 3/3
+SFT           总计 正确 9/15
+
+
+===== SFT + 验证器纠错 × 15 题 =====
+[L01·loc] √ A1: 第1行第2列第3列第4列。 → A2: 第1行第2列第3列第4列。 | gold: 第1行第2列
+[L02·loc] × A1: 第1行第2列第3列第4列。 → A2: 第1行第4列。 | gold: 第1行第1列
+[L03·loc] × A1: 第1行第4列。第1行第4列。第1行第 → A2: 第1行第4列第2列第5列第6列第7列 | gold: 第4行第2列
+[L04·loc] × A1: 第1行第2列第3列第4列。 → A2: 第1行第4列。 | gold: 第2行第2列
+[L05·loc] √ A1: 第1行第2列第3列。 → A2: 第1行第2列第3列。 | gold: 第1行第2列
+[L06·loc] × A1: 第1行第2列第3列。 → A2: 第4行第4列 | gold: 第4行第1列
+[L07·loc] × A1: 第1行第4列。 → A2: 第1行第4列 | gold: 第2行第4列
+[L08·loc] √ A1: 第1行第4列。 → A2: 第4行第4列第4列。 | gold: 第4行第4列
+[C01·count] √ A1: 1个。 → A2: 1个。 | gold: 1个
+[C02·count] √ A1: 1个。 → A2: 1个。 | gold: 1个
+[C03·count] √ A1: 1个。 → A2: 1个。 | gold: 1个
+[C04·count] √ A1: 1个。 → A2: 1个。 | gold: 1个
+[E01·exist] √ A1: 有没有红色方形？ → A2: 有没有红色方形？ | gold: 有
+[E02·exist] √ A1: 有没有红色方形。 → A2: 有没有红色方形。 | gold: 有
+[E03·exist] √ A1: 有没有蓝色圆形？ → A2: 有没有蓝色圆形？ | gold: 有
+SFT           纯 VLM 正确 9/15 → 纠错后正确 10/15
+

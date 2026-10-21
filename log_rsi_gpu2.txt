@@ -1,0 +1,66 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  35%|███▌      | 166/471 [00:00<00:00, 1655.34it/s]
+Loading weights:  70%|███████   | 332/471 [00:00<00:00, 1612.03it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 1543.35it/s]
+trainable params: 1,363,968 || all params: 257,848,896 || trainable%: 0.5290
+[sft] 种子数据 15 条（定位答案由 GT 框换算）→ sft_data.json
+[rsi] 初始数据池 15 条，开始 2 轮递归自进化
+
+===== RSI 第 1 轮 =====
+[rsi] 轮1：VLM 答对 4/15，自查改写 0 次，验证器纠错 7 次，新增可用样本 0 条
+[rsi] 轮1：定位平均 IoU = 0.000
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+[sft] step5/30 loss=1.5119
+[sft] step10/30 loss=8.4543
+[sft] step15/30 loss=8.1556
+[sft] step20/30 loss=0.7741
+[sft] step25/30 loss=5.2764
+[sft] step30/30 loss=3.9367
+D:\code\python\Lib\site-packages\peft\utils\save_and_load.py:313: UserWarning: Could not find a config file in HuggingFaceTB/SmolVLM-256M-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+[sft] 适配器已保存到 ./sft_adapter（本轮训练样本 15 条）
+
+===== RSI 轮1 × 15 题 =====
+[L01] √ A: 第1行第2列第3列第4列。 | gold: 第1行第2列 | IoU=0.18
+[L02] × A: 第1行第2列第3列。 | gold: 第1行第1列 | IoU=0.00
+[L03] × A: 第1行第4列。 | gold: 第4行第2列 | IoU=0.00
+[L04] × A: 第1行第2列第3列。 | gold: 第2行第2列 | IoU=0.14
+[L05] √ A: 第1行第2列第3列。 | gold: 第1行第2列 | IoU=0.16
+[L06] × A: 第1行第2行第3行 | gold: 第4行第1列 | IoU=0.00
+[L07] × A: 第1行第2列第3列。 | gold: 第2行第4列 | IoU=0.00
+[L08] × A: 第1行第2列第3列第4列。 | gold: 第4行第4列 | IoU=0.00
+RSI 轮1        loc    正确 2/8
+RSI 轮1        count  正确 4/4
+RSI 轮1        exist  正确 0/3
+RSI 轮1        总计 正确 6/15
+
+
+===== RSI 第 2 轮 =====
+[rsi] 轮2：VLM 答对 6/15，自查改写 4 次，验证器纠错 6 次，新增可用样本 0 条
+[rsi] 轮2：定位平均 IoU = 0.059
+[sft] step5/30 loss=0.3376
+[sft] step10/30 loss=2.3853
+[sft] step15/30 loss=2.0198
+[sft] step20/30 loss=0.2611
+[sft] step25/30 loss=0.6859
+[sft] step30/30 loss=0.3681
+[sft] 适配器已保存到 ./sft_adapter（本轮训练样本 15 条）
+
+===== RSI 轮2 × 15 题 =====
+[L01] √ A: 第1行第2列第3列第4列。 | gold: 第1行第2列 | IoU=0.18
+[L02] × A: 第1行第2列第3列第4列。 | gold: 第1行第1列 | IoU=0.00
+[L03] × A: 第1行第4列。第1行第4列。第1行第 | gold: 第4行第2列 | IoU=0.00
+[L04] × A: 第1行第2列第3列第4列。 | gold: 第2行第2列 | IoU=0.14
+[L05] √ A: 第1行第2列第3列。 | gold: 第1行第2列 | IoU=0.16
+[L06] × A: 第1行第2列第3列。 | gold: 第4行第1列 | IoU=0.00
+[L07] × A: 第1行第2列第3列第4列。 | gold: 第2行第4列 | IoU=0.00
+[L08] × A: 第1行第4列。 | gold: 第4行第4列 | IoU=0.00
+RSI 轮2        loc    正确 2/8
+RSI 轮2        count  正确 4/4
+RSI 轮2        exist  正确 3/3
+RSI 轮2        总计 正确 9/15
+
+[rsi] 记忆写入 rsi_memory.json（30 条）；数据池最终 15 条

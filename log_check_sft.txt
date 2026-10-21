@@ -1,0 +1,11 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  35%|███▌      | 167/471 [00:00<00:00, 1662.66it/s]
+Loading weights:  71%|███████   | 334/471 [00:00<00:00, 1423.00it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 1339.74it/s]
+[L01] √ A: 第1行第2列第3列第4列。 | gold: 第1行第2列 | IoU=0.18
+[L02] × A: 第1行第2列第3列第4列。 | gold: 第1行第1列 | IoU=0.00
+[L03] × A: 第1行第4列。第1行第4列。第1行第 | gold: 第4行第2列 | IoU=0.00
+[L04] × A: 第1行第2列第3列第4列。 | gold: 第2行第2列 | IoU=0.14

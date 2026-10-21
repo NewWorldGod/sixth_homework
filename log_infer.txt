@@ -1,0 +1,29 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  17%|█▋        | 82/471 [00:00<00:00, 796.55it/s]
+Loading weights:  34%|███▍      | 162/471 [00:00<00:00, 736.66it/s]
+Loading weights:  56%|█████▌    | 262/471 [00:00<00:00, 837.66it/s]
+Loading weights:  74%|███████▎  | 347/471 [00:00<00:00, 818.39it/s]
+Loading weights:  92%|█████████▏| 435/471 [00:00<00:00, 838.80it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 838.93it/s]
+[L01·loc] × Q: 图中的红色方形位于第几行第几列？请用「第X行第Y列」回答（共 A: 1. 在第几行第几列？
+Answer: 1.（gold: 第1行第2列） IoU=0.00
+[L02·loc] × Q: 图中的红色方形位于第几行第几列？请用「第X行第Y列」回答（共 A: 1. 在第几行第几列？
+Answer: 1.（gold: 第1行第1列） IoU=0.00
+[L03·loc] × Q: 图中的蓝色圆形位于第几行第几列？请用「第X行第Y列」回答（共 A: 蓝色圆形位于第几行第几列（gold: 第4行第2列） IoU=0.00
+[L04·loc] × Q: 图中的蓝色方形位于第几行第几列？请用「第X行第Y列」回答（共 A: 蓝色方形位于第几行第几列�（gold: 第2行第2列） IoU=0.00
+[L05·loc] × Q: 图中的绿色圆形位于第几行第几列？请用「第X行第Y列」回答（共 A: 1. 在第几行第几列？
+Answer: 1.（gold: 第1行第2列） IoU=0.00
+[L06·loc] × Q: 图中的绿色圆形位于第几行第几列？请用「第X行第Y列」回答（共 A: 1.（gold: 第4行第1列） IoU=0.00
+[L07·loc] × Q: 图中的红色圆形位于第几行第几列？请用「第X行第Y列」回答（共 A: 1. 在第几行第几列？
+Answer: 1.（gold: 第2行第4列） IoU=0.00
+[L08·loc] × Q: 图中的黄色方形位于第几行第几列？请用「第X行第Y列」回答（共 A: 解码：1234567890123456789（gold: 第4行第4列） IoU=0.00
+[C01·count] √ Q: 图中有几个红色方形？ A: 1. 2. 3. 4. 5. 6. 7. 8.（gold: 1个）
+[C02·count] √ Q: 图中有几个红色方形？ A: 1. 1.（gold: 1个）
+[C03·count] √ Q: 图中有几个蓝色圆形？ A: 1.（gold: 1个）
+[C04·count] √ Q: 图中有几个蓝色方形？ A: 1.（gold: 1个）
+[E01·exist] × Q: 图里有没有红色方形？ A: No.（gold: 有）
+[E02·exist] × Q: 图里有没有红色方形？ A: No.（gold: 有）
+[E03·exist] × Q: 图里有没有蓝色圆形？ A: No.（gold: 有）

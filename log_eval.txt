@@ -1,0 +1,63 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  24%|██▍       | 112/471 [00:00<00:00, 1113.31it/s]
+Loading weights:  48%|████▊     | 224/471 [00:00<00:00, 1011.73it/s]
+Loading weights:  69%|██████▉   | 326/471 [00:00<00:00, 738.42it/s] 
+Loading weights:  87%|████████▋ | 409/471 [00:00<00:00, 759.77it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 821.04it/s]
+
+===== 基线 × 15 题 =====
+[L01] × A: 1. 在第几行第几列？
+Answer: 1. | gold: 第1行第2列 | IoU=0.00
+[L02] × A: 1. 在第几行第几列？
+Answer: 1. | gold: 第1行第1列 | IoU=0.00
+[L03] × A: 蓝色圆形位于第几行第几列 | gold: 第4行第2列 | IoU=0.00
+[L04] × A: 蓝色方形位于第几行第几列� | gold: 第2行第2列 | IoU=0.00
+[L05] × A: 1. 在第几行第几列？
+Answer: 1. | gold: 第1行第2列 | IoU=0.00
+[L06] × A: 1. | gold: 第4行第1列 | IoU=0.00
+[L07] × A: 1. 在第几行第几列？
+Answer: 1. | gold: 第2行第4列 | IoU=0.00
+[L08] × A: 解码：1234567890123456789 | gold: 第4行第4列 | IoU=0.00
+基线            loc    正确 0/8
+基线            count  正确 4/4
+基线            exist  正确 0/3
+基线            总计 正确 4/15
+
+
+===== SFT × 15 题 =====
+[L01] × A: 1.0. | gold: 第1行第2列 | IoU=0.00
+[L02] × A: 1. 1. 2. 3. 4. 5. 6. 7. | gold: 第1行第1列 | IoU=0.00
+[L03] × A: 1.0. | gold: 第4行第2列 | IoU=0.00
+[L04] × A: 1.0. | gold: 第2行第2列 | IoU=0.00
+[L05] × A: 1. 1. 2. 3. 4. 5. 6. 7. | gold: 第1行第2列 | IoU=0.00
+[L06] × A: 1. | gold: 第4行第1列 | IoU=0.00
+[L07] × A: 1. 1. 2. 3. 4. 5. 6. 7. | gold: 第2行第4列 | IoU=0.00
+[L08] × A: 1. | gold: 第4行第4列 | IoU=0.00
+SFT           loc    正确 0/8
+SFT           count  正确 4/4
+SFT           exist  正确 0/3
+SFT           总计 正确 4/15
+
+
+===== SFT + 验证器纠错 × 15 题 =====
+[L01·loc] × A1: 1.0. → A2: 1 | gold: 第1行第2列
+[L02·loc] × A1: 1. 1. 2. 3. 4. 5. 6. 7. → A2: 1.0 | gold: 第1行第1列
+[L03·loc] × A1: 1.0. → A2: 0 | gold: 第4行第2列
+[L04·loc] × A1: 1.0. → A2: 0.01 | gold: 第2行第2列
+[L05·loc] × A1: 1. 1. 2. 3. 4. 5. 6. 7. → A2: 1.000000000000000000000 | gold: 第1行第2列
+[L06·loc] × A1: 1. → A2: 1 | gold: 第4行第1列
+[L07·loc] × A1: 1. 1. 2. 3. 4. 5. 6. 7. → A2: 1 | gold: 第2行第4列
+[L08·loc] × A1: 1. → A2: 1 | gold: 第4行第4列
+[C01·count] √ A1: 1. → A2: 1. | gold: 1个
+[C02·count] √ A1: 1. 2. 3. 4. 5. 6. 7. 8. → A2: 1. 2. 3. 4. 5. 6. 7. 8. | gold: 1个
+[C03·count] √ A1: 1. → A2: 1. | gold: 1个
+[C04·count] √ A1: 1. → A2: 1. | gold: 1个
+[E01·exist] × A1: No. → A2: 608. | gold: 有
+[E02·exist] × A1: No. → A2: 512. | gold: 有
+[E03·exist] × A1: No. → A2: No | gold: 有
+SFT           纯 VLM 正确 4/15 → 纠错后正确 4/15
+
+提示：把三阶段结果与纠错统计抄进报告表。

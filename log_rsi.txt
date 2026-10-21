@@ -1,0 +1,9 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]
+Loading weights:  37%|███▋      | 176/471 [00:00<00:00, 1739.65it/s]
+Loading weights:  74%|███████▍  | 350/471 [00:00<00:00, 1598.61it/s]
+Loading weights: 100%|██████████| 471/471 [00:00<00:00, 1501.00it/s]
+D:\code\python\Lib\site-packages\peft\utils\save_and_load.py:313: UserWarning: Could not find a config file in HuggingFaceTB/SmolVLM-256M-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
